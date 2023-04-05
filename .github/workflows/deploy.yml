@@ -5,7 +5,7 @@ on:
       - dev
 
 jobs:
-  code_review:
+  run_tests:
     runs-on: ubuntu-latest
 
     steps:
