@@ -20,14 +20,14 @@ jobs:
     - name: Run tests
       run: |
         echo "Running tests"
-        pytest ./app/test_main.py
+        find . -name "test_*.py" -type f -exec pytest {} \;
 
   build_app:
     runs-on: ubuntu-latest
     needs: run_tests
     steps:
-    # - name: Checkout code
-    #   uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
     - name: build code
       run: |
