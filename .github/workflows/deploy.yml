@@ -6,6 +6,9 @@ on:
 env:
   REPO: helm
   TAGS: v0.0.1
+  DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+  DOCKERHUB_USERNAME: welbsterhansi
+
 
 jobs:
   run_tests:
@@ -35,8 +38,8 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
       with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        username: ${{ env.DOCKERHUB_USERNAME }}
+        password: ${{ env.DOCKERHUB_PASSWORD }}
         
     - name: build code
       run: |
