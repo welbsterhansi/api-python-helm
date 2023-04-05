@@ -5,6 +5,24 @@ on:
       - dev
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        echo "Installing dependencies"
+        pip install -r ./app/requirements.txt
+
+    - name: Run tests
+      run: |
+        echo "Running tests"
+        pytest ./app/test_main.py
+
+jobs:
   build:
     runs-on: ubuntu-latest
     
@@ -21,20 +39,3 @@ jobs:
       if: github.ref_type == 'branch' && github.ref == 'refs/heads/dev'
       run: |
        echo "Trigger Ok!"
-
-  test:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Install dependencies
-      run: |
-        echo "Installing dependencies"
-        pip install -r ./app/requirements.txt
-
-    - name: Run tests
-      run: |
-        echo "Running tests"
-        pytest ./app/test_main.py
