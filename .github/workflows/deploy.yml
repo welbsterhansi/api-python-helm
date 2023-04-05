@@ -15,7 +15,7 @@ jobs:
     - name: Install dependencies
       run: |
         echo "Installing dependencies"
-        pip install -r $(find . -name "requirements.txt")
+        find . -name "requirements.txt" -type f -exec pip install -r {} \;        
 
     - name: Run tests
       run: |
