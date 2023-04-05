@@ -39,7 +39,7 @@ jobs:
       uses: docker/login-action@v2
       with:
         username: ${{ env.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        password: ${{ env.DOCKERHUB_PASSWORD }}
     
         
     - name: build code
