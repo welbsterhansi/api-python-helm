@@ -51,4 +51,4 @@ jobs:
     - name: Run when push is merged
       if: github.ref_type == 'branch' && github.ref == 'refs/heads/dev'
       run: |
-       echo "Trigger Ok!"
+       docker push ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO }}:${{ env.TAGS }}
