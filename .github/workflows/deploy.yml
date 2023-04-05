@@ -11,6 +11,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: build code
+      run: |
+       echo "building"
+       docker build -t=app .
       
     - name: Run when push is merged
       if: github.ref_type == 'branch' && github.ref == 'refs/heads/dev'
