@@ -22,7 +22,6 @@ jobs:
         echo "Running tests"
         pytest ./app/test_main.py
 
-jobs:
   build:
     runs-on: ubuntu-latest
     
